@@ -3,21 +3,21 @@ const os = require("os");
 
 const PORT = 3000;
 
-// A mock list of users (fake data, since we have no database yet)
+
 const users = [
   { id: 1, name: "Abebe Kebede", email: "abebe@example.com" },
   { id: 2, name: "Selam Tesfaye", email: "selam@example.com" },
   { id: 3, name: "Dawit Alemu", email: "dawit@example.com" },
 ];
 
-// Helper: send any JSON response with a status code
+
 function sendJson(res, statusCode, data) {
   res.writeHead(statusCode, { "Content-Type": "application/json" });
   res.end(JSON.stringify(data));
 }
 
 const server = http.createServer((req, res) => {
-  // Get just the path, without any ?query=string part
+
   const { pathname } = new URL(req.url, `http://${req.headers.host}`);
   const method = req.method;
 
@@ -31,7 +31,7 @@ const server = http.createServer((req, res) => {
     return sendJson(res, 200, { count: users.length, users });
   }
 
-  // Bonus: health check
+  //  health check
   if (method === "GET" && pathname === "/api/health") {
     return sendJson(res, 200, {
       status: "ok",
@@ -41,7 +41,7 @@ const server = http.createServer((req, res) => {
     });
   }
 
-  // Nothing matched, so the route doesn't exist
+  
   sendJson(res, 404, { error: "Not Found", path: pathname });
 });
 
