@@ -1,0 +1,22 @@
+{
+  "name": "task-2-async-engine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "start": "tsx src/index.ts",
+  "start:pool8": "cross-env UV_THREADPOOL_SIZE=8 tsx src/index.ts",
+  "typecheck": "tsc --noEmit",
+  "build": "tsc"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "cross-env": "^10.1.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
